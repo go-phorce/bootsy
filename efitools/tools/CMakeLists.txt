@@ -1,0 +1,23 @@
+project(tools)
+
+add_executable (cert-to-efi-hash-list cert-to-efi-hash-list.c)
+add_executable (cert-to-efi-sig-list cert-to-efi-sig-list.c)
+add_executable (efi-keytool efi-keytool.c)          
+add_executable (efi-readvar efi-readvar.c)        
+add_executable (efi-updatevar efi-updatevar.c)
+add_executable (flash-var flash-var.c) 
+add_executable (hash-to-efi-sig-list hash-to-efi-sig-list.c)
+add_executable (sig-list-to-certs sig-list-to-certs.c)    
+add_executable (sign-efi-sig-list sign-efi-sig-list.c)
+
+set(BOOTSY_LIBS utils asn1 crypto)
+
+target_link_libraries (cert-to-efi-hash-list ${BOOTSY_LIBS})
+target_link_libraries (cert-to-efi-sig-list ${BOOTSY_LIBS})
+target_link_libraries (efi-keytool ${BOOTSY_LIBS})
+target_link_libraries (efi-readvar ${BOOTSY_LIBS})
+target_link_libraries (efi-updatevar ${BOOTSY_LIBS})
+target_link_libraries (flash-var ${BOOTSY_LIBS})
+target_link_libraries (hash-to-efi-sig-list ${BOOTSY_LIBS})
+target_link_libraries (sig-list-to-certs ${BOOTSY_LIBS})
+target_link_libraries (sign-efi-sig-list ${BOOTSY_LIBS})
